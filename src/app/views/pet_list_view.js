@@ -28,7 +28,23 @@ var PetListView = Backbone.View.extend({
       that.$('#pet-list').append(petView.render().el);
     });
     console.log("finshed rendering pet list");
+  },
+
+  getFormData: function() {
+    var petName = this.$('#name').val();
+    this.$('#name').val('');
+
+    var petAge = this.$('#age').val();
+    this.$('#age').val('');
+
+    return {
+      name: petName,
+      age: petAge
+    };
   }
+
 });
+
+
 
 export default PetListView;
