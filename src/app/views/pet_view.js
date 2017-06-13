@@ -6,6 +6,8 @@ import Pet from '../models/pet.js';
 var PetView = Backbone.View.extend({
 
   initialize: function(params) {
+    var detailsTemplate = _.template($('#pet-info-template').html());
+    console.log(detailsTemplate);
     this.template = params.template;
     this.listenTo(this.model, "change", this.render);
     console.log("Initialize PetView");
@@ -21,7 +23,19 @@ var PetView = Backbone.View.extend({
   },
 
   events: {
+    'click': 'showPetDetails',
+    'click .delete-pet': 'deletePet'
+  },
 
+  showPetDetails: function(){
+    console.log(this.model);
+  },
+
+  deletePet: function(){
+    var id = this.model.attributes.id;
+    console.log("ID" + id);
+    //destroy auto creates the url by adding the model id for the api delete request
+    this.model.destroy();
   }
 
 

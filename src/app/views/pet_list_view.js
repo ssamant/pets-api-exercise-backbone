@@ -12,6 +12,10 @@ var PetListView = Backbone.View.extend({
     console.log("initialize Pet List View");
   },
 
+  events: {
+    'click #add-pet': 'addPet'
+  },
+
   render: function() {
     console.log("Start render Pet List View");
     this.$('#pet-list').empty();
@@ -41,6 +45,12 @@ var PetListView = Backbone.View.extend({
       name: petName,
       age: petAge
     };
+  },
+
+  addPet: function() {
+    var pet = new Pet(this.getFormData());
+    console.log(pet);
+    this.model.create(pet);
   }
 
 });

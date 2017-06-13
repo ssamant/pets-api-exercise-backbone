@@ -30,7 +30,7 @@
           </section>
 
       </aside>
-      <section id='pet' class="create-new-pet"></section>
+      <section id='pet'></section>
       <section id='pet-list'></section>
       <section id='new-pet'></section>
     </main>
@@ -38,7 +38,10 @@
     <!-- Templates -->
 
     <script id="pet-card-template" type="text/template">
-      <li><%- pet.name %></li>
+      <section class='row'>
+        <button class="medium-2 columns button"><%- pet.name %></button>
+        <button id=<%- pet.id %> class="delete-pet medium-1 columns button success">delete</button>
+      </section>
     </script>
 
     <script id="pet-info-template" type="text/template">
@@ -50,10 +53,6 @@
       <% }else{ %>
         <input type="checkbox" name="vaccinated">
       <% } %>
-
-
-
-    </script>
 
     </script>
 
